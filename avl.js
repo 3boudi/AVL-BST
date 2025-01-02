@@ -147,7 +147,7 @@ class AVLTree {
 
   // Search for a value in the tree
   search(node, value) {
-    if (!node) return null; // If the node is null, the value is not found
+    if (!node) return null; // If node is null, value not found
     if (value === node.value) return node; // Value found
     return value < node.value ? this.search(node.left, value) : this.search(node.right, value);
   }
@@ -233,6 +233,29 @@ function addValue() {
   if (!isNaN(value)) {
     avl.root = avl.insert(avl.root, value); // Insert the value
     avl.drawFullTree(); // Redraw the tree
+    alert(`Value ${value} added to the tree.`);
+  } else {
+    alert("Please enter a valid number.");
+  }
+}
+
+// Search for a value in the AVL tree and highlight the path
+function searchValue() {
+  const value = parseInt(document.getElementById("nodeValue").value); // Get the value from input
+  if (!isNaN(value)) {
+    const path = []; // Array to store the path to the node
+    const result = searchWithPath(avl.root, value, path); // Search for the value and record the path
+
+    if (result) {
+      avl.drawFullTree(); // Redraw the tree
+      drawPath1(path); // Highlight the path to the node
+      highlightNode1(result); // Highlight the found node
+      alert(`Value ${value} found at depth ${Math.floor(result.y / 60)}.`);
+    } else {
+      alert(`Value ${value} not found in the tree.`);
+    }
+  } else {
+    alert("Please enter a valid number.");
   }
 }
 
@@ -240,25 +263,28 @@ function addValue() {
 function deleteValue() {
   const value = parseInt(document.getElementById("nodeValue").value); // Get the value from input
   if (!isNaN(value)) {
-    const path = [];
-    const targetNode = searchWithPath(avl.root, value, path); // Find the path to the node
+    const path = []; // Array to store the path to the node
+    const targetNode = searchWithPath(avl.root, value, path); // Find the node to delete
 
     if (targetNode) {
-      avl.drawFullTree();
-      drawPath(path); // Highlight the path
-      highlightNode(targetNode); // Highlight the node to delete
+      avl.drawFullTree(); // Redraw the tree
+      drawPath2(path); // Highlight the path
+      highlightNode2(targetNode); // Highlight the node to delete
 
       setTimeout(() => {
         avl.root = avl.delete(avl.root, value); // Delete the node
         avl.drawFullTree(); // Redraw the tree
+        alert(`Value ${value} deleted from the tree.`);
       }, 1000); // Delay to show the highlight
     } else {
       alert(`Value ${value} not found in the tree.`);
     }
+  } else {
+    alert("Please enter a valid number.");
   }
 }
 
-// Search for a value in the tree and highlight the path
+// Search for a value and record the path to the node
 function searchWithPath(node, value, path = []) {
   if (!node) return null; // If node is null, value not found
   path.push(node); // Add the current node to the path
@@ -267,7 +293,25 @@ function searchWithPath(node, value, path = []) {
 }
 
 // Highlight the path to a node
-function drawPath(path) {
+function drawPath1(path) {
+  avl.ctx.strokeStyle = "yellow"; // Set path color to red
+  avl.ctx.lineWidth = 3;
+
+  for (let i = 0; i < path.length - 1; i++) {
+    const from = path[i];
+    const to = path[i + 1];
+
+    avl.ctx.beginPath();
+    avl.ctx.moveTo(from.x, from.y); // Start from the current node
+    avl.ctx.lineTo(to.x, to.y); // Draw line to the next node
+    avl.ctx.stroke();
+    avl.ctx.closePath();
+  }
+
+  avl.ctx.lineWidth = 1; // Reset line width
+  avl.ctx.strokeStyle = "black"; // Reset stroke color
+
+}function drawPath2(path) {
   avl.ctx.strokeStyle = "red"; // Set path color to red
   avl.ctx.lineWidth = 3;
 
@@ -287,7 +331,7 @@ function drawPath(path) {
 }
 
 // Highlight a specific node
-function highlightNode(node) {
+function highlightNode1(node) {
   avl.ctx.beginPath();
   avl.ctx.arc(node.x, node.y, 25, 0, 2 * Math.PI); // Draw a larger circle around the node
   avl.ctx.fillStyle = "yellow"; // Set highlight color to yellow
@@ -296,8 +340,23 @@ function highlightNode(node) {
 
   avl.ctx.fillStyle = "black"; // Set text color to black
   avl.ctx.font = "16px Arial";
-  avl.ctx.textAlign = "center";
+  avl.ctx.textAlign = "center"
   avl.ctx.textBaseline = "middle";
   avl.ctx.fillText(node.value, node.x, node.y); // Draw the node value
   avl.ctx.closePath();
 }
+function highlightNode2(node) {
+  avl.ctx.beginPath();
+  avl.ctx.arc(node.x, node.y, 25, 0, 2 * Math.PI); // Draw a larger circle around the node
+  avl.ctx.fillStyle = "red"; // Set highlight color to yellow
+  avl.ctx.fill();
+  avl.ctx.stroke();
+
+  avl.ctx.fillStyle = "black"; // Set text color to black
+  avl.ctx.font = "16px Arial";
+  avl.ctx.textAlign = "center"
+  avl.ctx.textBaseline = "middle";
+  avl.ctx.fillText(node.value, node.x, node.y); // Draw the node value
+  avl.ctx.closePath();
+}
+
