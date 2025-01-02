@@ -248,8 +248,9 @@ function searchValue() {
       avl.drawFullTree(); // Redraw the tree
       drawPath1(path); // Highlight the path to the node
       highlightNode1(result); // Highlight the found node
-    
-    }
+     
+    } 
+  } 
 }
 
 // Delete a value from the AVL tree and redraw it
@@ -267,8 +268,10 @@ function deleteValue() {
       setTimeout(() => {
         avl.root = avl.delete(avl.root, value); // Delete the node
         avl.drawFullTree(); // Redraw the tree
-      
+       
       }, 1000); // Delay to show the highlight
+    }
+  } 
 }
 
 // Search for a value and record the path to the node
