@@ -93,7 +93,7 @@ This project was developed as part of the **Algorithms and Complexity** module a
 ### Team Members
 - **CHERFA Mohammed Akram**
 - **HALITIM Amin**
-- **DJEGBAL Sidali**
+- **DJEGHBAL Sidali**
 
 ### Module and Instructor
 - **Module**: Algorithms and Complexity
