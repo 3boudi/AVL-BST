@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BST Demonstration</title>
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AVL Tree Visualization</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+	<body>
+		<h1>BST Tree</h1>
 
-<body>
-  <h1>AVL Tree</h1>
-  
-  <canvas id="canvas" width="800" height="600"></canvas>
-  
-  <br>
-  
-  <input type="number" id="nodeValue" placeholder="add number">
-  <button class="Add" onclick="addValue()">Add Value</button>
-  <button class="search" onclick="searchValue()">Search Value</button>
-  <button class="delete" onclick="deleteValue()">Delete Value</button>
-  <button class="display">Display Values</button>
-  
-  <script src="avl.js"></script>
+		<canvas id="canvas" width="800" height="600"></canvas>
 
-</body>
+		<br />
 
+		<div class="inputs">
+			<input type="number" id="nodeValue" placeholder="add number" />
+			<button class="add" onclick="addValue()">Add Value</button>
+			<button class="search" onclick="searchValue()">Search Value</button>
+			<button class="delete" onclick="deleteValue()">Delete Value</button>
+		</div>
+
+		<!-- <button class="display">Display Values</button> -->
+
+		<script src="avl.js"></script>
+	</body>
 </html>
