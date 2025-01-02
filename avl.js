@@ -233,9 +233,7 @@ function addValue() {
   if (!isNaN(value)) {
     avl.root = avl.insert(avl.root, value); // Insert the value
     avl.drawFullTree(); // Redraw the tree
-    alert(`Value ${value} added to the tree.`);
-  } else {
-    alert("Please enter a valid number.");
+   
   }
 }
 
@@ -250,13 +248,8 @@ function searchValue() {
       avl.drawFullTree(); // Redraw the tree
       drawPath1(path); // Highlight the path to the node
       highlightNode1(result); // Highlight the found node
-      alert(`Value ${value} found at depth ${Math.floor(result.y / 60)}.`);
-    } else {
-      alert(`Value ${value} not found in the tree.`);
+    
     }
-  } else {
-    alert("Please enter a valid number.");
-  }
 }
 
 // Delete a value from the AVL tree and redraw it
@@ -274,14 +267,8 @@ function deleteValue() {
       setTimeout(() => {
         avl.root = avl.delete(avl.root, value); // Delete the node
         avl.drawFullTree(); // Redraw the tree
-        alert(`Value ${value} deleted from the tree.`);
+      
       }, 1000); // Delay to show the highlight
-    } else {
-      alert(`Value ${value} not found in the tree.`);
-    }
-  } else {
-    alert("Please enter a valid number.");
-  }
 }
 
 // Search for a value and record the path to the node
