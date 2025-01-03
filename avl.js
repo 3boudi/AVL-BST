@@ -244,12 +244,12 @@ const avl = new AVLTree();
 
 // Define colors for each level
 const levelColors = [
-    "#FF5733",
-    "#33FF57",
+    "#ff8d0c",
+    "#10b810",
     "#3357FF",
-    "#F3FF33",
-    "#FF33A1",
-    "#33FFF3",
+    "#646464",
+    "#a113c9",
+    "#00c7bd",
 ];
 
 // Animate a single node's transition
