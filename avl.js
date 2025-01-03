@@ -157,6 +157,21 @@ class AVLTree {
 			? this.search(node.left, value)
 			: this.search(node.right, value);
 	}
+
+	// In-order traversal of the tree
+	inOrder(cb, root = this.root) {
+		if (cb == null)
+			throw new Error(
+				"Error in Tree class: Called inOrder but didn't provide callback!"
+			);
+
+		if (root == null) return;
+
+		this.inOrder(cb, root.left);
+		cb(root);
+		this.inOrder(cb, root.right);
+	}
+
 	// Draw the entire tree
 	drawTree(node, x, y, dx) {
 		if (node) {
@@ -357,6 +372,16 @@ function searchValue() {
 	}
 }
 
+function buildArray() {
+	const arr = [];
+
+	avl.inOrder((node) => {
+		arr.push(node.value);
+	});
+
+	alert("Ordered list: [" + arr.join(", ") + "]");
+}
+
 // Example delete value function with highlight
 function deleteValue() {
 	const value = parseInt(document.getElementById("nodeValue").value); // Get the value from input
@@ -384,7 +409,6 @@ function searchWithPath(node, value, path = []) {
 		? searchWithPath(node.left, value, path)
 		: searchWithPath(node.right, value, path);
 }
-
 
 // Highlight the path to a node
 function drawPath1(path) {
