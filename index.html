@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>BST Demonstration</title>
 		<link rel="stylesheet" href="style.css" />
+		<script src="avl.js"></script>
+		<script src="app.js" defer></script>
 	</head>
 
 	<body>
@@ -16,12 +18,10 @@
 
 		<div class="inputs">
 			<input type="number" id="nodeValue" placeholder="add number" />
-			<button class="add" onclick="addValue()">Add Value</button>
-			<button class="search" onclick="searchValue()">Search Value</button>
-			<button class="delete" onclick="deleteValue()">Delete Value</button>
-			<button class="array" onclick="buildArray()">Build Ordered Array</button>
+			<button id="add">Add Value</button>
+			<button id="search">Search Value</button>
+			<button id="delete">Delete Value</button>
+			<button id="array">Build Ordered Array</button>
 		</div>
-
-		<script src="avl.js"></script>
 	</body>
 </html>

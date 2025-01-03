@@ -52,19 +52,16 @@ button {
 	}
 }
 
-.add {
+#add {
 	background-color: rgb(0, 100, 0);
 }
-.search {
+#search {
 	background-color: yellow;
 	color: black;
 }
-.delete {
+#delete {
 	background-color: red;
 }
-.display {
-	background-color: #9b9b9b;
-}
-.array {
+#array {
 	color: black;
 }
