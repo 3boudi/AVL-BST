@@ -1,3 +1,4 @@
+
 (function () {
 	// Create an instance of the AVL tree
 	const avl = new AVLTree();
@@ -7,7 +8,7 @@
 	document.getElementById("add").onclick = addValue;
 	document.getElementById("search").onclick = searchValue;
 	document.getElementById("delete").onclick = deleteValue;
-	document.getElementById("array").onclick = buildArray;
+	document.getElementById("array").onclick = popup;
 
 	// Define colors for each level
 	const levelColors = [
@@ -122,16 +123,6 @@
 		}
 	}
 
-	function buildArray() {
-		const arr = [];
-
-		avl.inOrder((node) => {
-			arr.push(node.value);
-		});
-
-		alert("Ordered list: [" + arr.join(", ") + "]");
-	}
-
 	// Example delete value function with highlight
 	function deleteValue() {
 		const value = parseInt(numberInput.value); // Get the value from input
@@ -230,4 +221,27 @@
 		avl.ctx.fillText(node.value, node.x, node.y); // Draw the node value
 		avl.ctx.closePath();
 	}
+
+	function popup() {
+		const popupContainer = document.querySelector(".popup-container");
+		const closeBtn = document.querySelector(".close-btn");
+		const popupMessage = document.getElementById("popup-message");
+	
+		const arr = [];
+		avl.inOrder((node) => {
+			arr.push(node.value);
+		});
+	
+		popupMessage.textContent = "Ordered list: [" + arr.join(", ") + "]";
+	
+		popupContainer.classList.add("active");
+	
+		closeBtn.onclick = () => {
+			popupContainer.classList.remove("active");
+		};
+	}
+	
+	
 })();
+
+

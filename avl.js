@@ -151,11 +151,12 @@ class AVLTree {
 
 	// Search for a value in the tree
 	search(node, value) {
-		if (!node) return null; // If node is null, value not found
+		if (!node) console.log(`${value} not found in the tree`); // If node is null, value not found
 		if (value === node.value) return node; // Value found
 		return value < node.value
 			? this.search(node.left, value)
 			: this.search(node.right, value);
+		// when user tries to search for a value not found in the tree
 	}
 
 	// In-order traversal of the tree

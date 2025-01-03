@@ -2,11 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>BST Demonstration</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="avl.js"></script>
-		<script src="app.js" defer></script>
+		<link rel="stylesheet" href="popup.css" />
+
 	</head>
 
 	<body>
@@ -21,7 +22,18 @@
 			<button id="add">Add Value</button>
 			<button id="search">Search Value</button>
 			<button id="delete">Delete Value</button>
-			<button id="array">Build Ordered Array</button>
+			<section class="popup-window">
+				<button id="array">Build Ordered Array</button>
+				<div class="popup-container">
+					<div class="popup-box">
+						<p id="popup-message"></p>
+						<button class="close-btn">OK</button>
+					</div>
+				</div>
+			</section>
 		</div>
+
+		<script src="avl.js"></script>
+		<script src="app.js" defer></script>
 	</body>
 </html>
