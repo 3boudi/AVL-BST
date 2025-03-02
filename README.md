@@ -106,8 +106,8 @@ This project was developed as part of the **Algorithms and Complexity** module a
 4. Observe the animations for better understanding of AVL tree balancing.
 
 ### Example Usage
-1. Add values: Enter "10" in the input field and click "Add Value."
-2. Delete values: Enter "10" in the input field and click "Delete Value."
+1. Add values: Enter "5" in the input field and click "Add Value."
+2. Delete values: Enter "5" in the input field and click "Delete Value."
 3. Search for values: Enter "15" in the input field and click "Search Value."
 
 ## Future Enhancements
